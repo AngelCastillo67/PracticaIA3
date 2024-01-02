@@ -56,13 +56,24 @@ public class Modelo {
 
     }
 
+
+
     public String aplicarModelo() {
         try{
-            String[] valoresAtributos = {"Win", "Draw", "Lose"};
+            String[] valoresAtributos = {"Draw", "Win", "Lose"};
+
+
             Classifier clasificador  = (Classifier) weka.core.SerializationHelper.read("./models/internationalMatchesJ48.model");
-            Instances data = leerInstancias("./test_data/test.arff");
-            return valoresAtributos[(int) clasificador.classifyInstance(data.instance(0))];
-        }catch (Exception ex) {
+Instances data = leerInstancias("./test_data/test1.arff");
+
+
+            return valoresAtributos[(int)clasificador.classifyInstance(data.instance(0))];
+
+
+
+
+
+}catch (Exception ex) {
             Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
             return "Error al intentar leer el modelo";
         }
