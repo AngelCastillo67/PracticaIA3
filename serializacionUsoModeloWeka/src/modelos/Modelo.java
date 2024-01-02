@@ -60,14 +60,24 @@ public class Modelo {
 
     public String aplicarModelo() {
         try{
-            String[] valoresAtributos = {"Draw", "Win", "Lose"};
+            String[] valoresAtributos = {"Win", "Draw", "Lose"};
 
 
             Classifier clasificador  = (Classifier) weka.core.SerializationHelper.read("./models/internationalMatchesJ48.model");
 Instances data = leerInstancias("./test_data/test1.arff");
 
+        data.setClassIndex(data.numAttributes() - 1);
 
-            return valoresAtributos[(int)clasificador.classifyInstance(data.instance(0))];
+
+        double prediction = clasificador.classifyInstance(data.instance(0));
+
+            StringBuilder sb = new StringBuilder();   
+for (int i = 0; i < 3; i++)
+                sb.append(valoresAtributos[(int) clasificador.classifyInstance(data.instance(i))] + ", ");
+            return sb.toString();
+
+
+           //  return valoresAtributos[(int) prediction];
 
 
 

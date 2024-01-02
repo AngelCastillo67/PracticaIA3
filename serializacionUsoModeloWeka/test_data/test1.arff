@@ -11,4 +11,6 @@
 @attribute home_team_result {Win,Draw,Lose}
 
 @data
-Jamaica,Haiti,2,0,Lose
+Jamaica,Haiti,2,0,?
+Mongolia, Vietnam,1,2,?
+Brazil,Bolivia,1,0,?
