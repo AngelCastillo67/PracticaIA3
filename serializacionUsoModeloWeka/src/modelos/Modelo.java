@@ -25,7 +25,8 @@ public class Modelo {
 
     private Instances leerInstancias(String ficherArff){
         try{
-            Instances inst = new Instances(new BufferedReader(new FileReader("./training_data/internationalMatches.arff")));
+            Instances inst = new Instances(new BufferedReader(new FileReader(ficherArff)));
+
             inst.setClassIndex(inst.numAttributes() - 1);
 
             return inst;
@@ -60,7 +61,7 @@ public class Modelo {
 
     public String aplicarModelo() {
         try{
-            String[] valoresAtributos = {"Win", "Draw", "Lose"};
+            String[] valoresAtributos = {"H","A","D"};
 
 
             Classifier clasificador  = (Classifier) weka.core.SerializationHelper.read("./models/internationalMatchesJ48.model");
@@ -73,7 +74,7 @@ Instances data = leerInstancias("./test_data/test1.arff");
 
             StringBuilder sb = new StringBuilder();   
 for (int i = 0; i < 3; i++)
-                sb.append(valoresAtributos[(int) clasificador.classifyInstance(data.instance(i))] + ", ");
+                sb.append(valoresAtributos[(int) clasificador.classifyInstance(data.instance(i))] + "  ");
             return sb.toString();
 
 
@@ -83,7 +84,8 @@ for (int i = 0; i < 3; i++)
 
 
 
-}catch (Exception ex) {
+}
+catch (Exception ex) {
             Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
             return "Error al intentar leer el modelo";
         }
