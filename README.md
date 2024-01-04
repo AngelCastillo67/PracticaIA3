@@ -17,9 +17,13 @@ java -jar aprendizaje.jar
 ### Realizacion del ejercicio
 
 -Descarga del data.set (.csv) en: *[https://www.kaggle.com/datasets](https://www.kaggle.com/datasets)*.
+
 -Personalización de los datos del fichero con los más relevantes para realizar el aprendizaje de la Inteligencia Artificial.
+
 -Introducción de un nuevo fichero dentro de la aplicación WEKA y obtención del fichero .arff que necesita el código para su funcionamiento.
+
 -Creación del modelo desde WEKA ,el más preciso J48(ID3) para este aprendizaje.
+
 -Creación de un fichero .arff para realizar el test y buscar el pronostico de resultados de los  partidos con los equipos y goles en primeras partes de los encuentros.
 
 Realizaremos el aprendizaje cogiendo dátos de partidas de la primera división de futbol español sobre quien gana la partida conociendo los goles en las primeras partes de los dos equipos que componen el encuentro, y el programa nos dará la estimación mas aproximada posible sobre cual es el resultado final esperado.
